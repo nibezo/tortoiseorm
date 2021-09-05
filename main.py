@@ -12,6 +12,7 @@ async def run():
     for i in range(len(idList)):  # add the id to People table
         await People(vk_id=idList[i]).save()
 
+    # .values_list vs .values - where's the difference?
     print(await People.all().values_list("id", flat=True))
     # >>> [1, ..., 309]
     print(await People.all().values("id", "vk_id"))
