@@ -17,5 +17,10 @@ async def id_database():
     # >>> [1, ..., 309]
     print(await People.all().values("id", "vk_id"))
     # >>> [{'id': 1, 'vk_id': '106320748'}, {'id': 2, 'vk_id': '107964572'}...]
+    print(await People.all().values("id", "vk_id"))
+
+    # write all "vk_id" to the list from db and print vk_id with pk = 30
+    SecondIdList = await People.all().values_list("vk_id", flat=True)
+    print(SecondIdList[29])
 
 run_async(id_database())
