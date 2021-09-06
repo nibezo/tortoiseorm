@@ -7,8 +7,10 @@ from tortoise.models import Model
 
 
 class People(Model):
+    """VK id """
+
     id: int = fields.IntField(pk=True)
-    vk_id: int = fields.IntField()
+    vk_id: int = fields.IntField(description="VK id")
 
     class Meta:
         table = "event"
