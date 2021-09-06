@@ -17,3 +17,17 @@ class People(Model):
 
     def __str__(self):
         return self.name
+
+
+class Category(Model):
+    """categories of food and their description"""
+
+    id: int = fields.IntField(pk=True, description="ID of the category")
+    name: str = fields.CharField(
+        max_length=64,
+        description="Description of the category",
+    )
+
+    class Meta:
+        table = "categories"
+        table_description = "table of the categories"
